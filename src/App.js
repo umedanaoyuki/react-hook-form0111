@@ -1,7 +1,7 @@
 import './App.css';
 import {useForm} from "react-hook-form";
 
-export default function FormBasic() {
+export default function App() {
 
     const defaultValue = {
         name: '山田太郎',
@@ -48,12 +48,33 @@ return (
             <div>{errors.gender?.message}</div>
         </div>
 
-        
-
-
-
-
-
+        <div>
+            <label htmlFor='email'>メールアドレス</label>
+            <input id='email' type="email"
+                {...register('email', {
+                    required: 'メールアドレスは必須入力です。',
+                    pattern: {
+                        value: /([a-z\d+\-.]+)@([a-z\d-]+(?:\.[a-z]+)*)/i,
+                        message: 'メールアドレスの形式が不正です。'
+                    }
+                })} />
+            <dic>{errors.email?.message}</dic>
+        </div>
+        <div>
+            <label htmlFor="memo">携帯：</label><br />
+            <textarea id="memo"
+                {...register('memo', {
+                    required: '備考は必須入力です。',
+                    maxLength: {
+                        value: 10,
+                        message: '備考は10文字以上にしてください。'
+                    }
+                })} />
+            <div>{errors.memo?.message}</div>
+        </div>
+        <div>
+            <button type="submit">送信</button>
+        </div>
     </form>
 )
 
