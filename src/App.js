@@ -1,5 +1,5 @@
 import './App.css';
-import { useForm } from 'react-hooks-form';
+import {useForm} from "react-hook-form";
 
 export default function FormBasic() {
 
@@ -16,6 +16,10 @@ export default function FormBasic() {
 
     const onsubmit = data => console.log(data);
     const onerror = err => console.log(err);
+
+return (
+    <p>テスト</p>
+)
 
 
 }
